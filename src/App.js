@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+  constructor(props){
+    super(props);
+    this.state={
+      tasks: []
+    };
+  }
+
+  componentDidMount(){
+    let url = 'http://localhost:3001/tasks'
+    fetch(url)
+      .then(resp => resp.json())
+      .then(data => {
+        let tasks =data.map((task,index)=>{
+          return(
+            <div key={task.id}>
+              <h3>{task.description}</h3>
+              <p>Fecha: {task.date}</p>
+              <p>Estado: {task.state}</p>
+            </div>
+          )
+        })
+        this.setState({
+          tasks: tasks
+        });
+      })
+  }
+  render(){
+    return(
+      <div className="App">
+        {this.state.tasks}
+      </div>
+    );
+  }
 }
 
 export default App;
