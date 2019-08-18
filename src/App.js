@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 import './bootstrap.min.css';
 import Header from './components/Header';
 import NewTask from './components/NewTask';
@@ -20,6 +21,7 @@ class App extends Component{
       tasks: newTasks,
       numberTask: (this.state.numberTask) +1
     })
+
     console.log(this.state.tasks)
   }
 
