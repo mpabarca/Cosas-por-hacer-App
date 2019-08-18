@@ -22,7 +22,8 @@ class App extends Component{
     fetch(url)
       .then(resp => resp.json())
       .then(data => {
-        let tasks =data.map((task,index)=>{
+        let tasks = data;
+        let readTask =data.map((task,index)=>{
           return(
             <div key={task.id}>
               <h3>{task.description}</h3>
@@ -39,8 +40,7 @@ class App extends Component{
       })
   }
   render(){
-    console.log(this.state.date);
-    console.log(this.state.timestamp)
+    console.log(this.state.tasks)
     return(
       <div className="container">
         <Header
