@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { throwStatement } from '@babel/types';
 
 class NewTask extends Component{
     constructor(props){
@@ -11,10 +10,11 @@ class NewTask extends Component{
     
     createNewTask(e){
         e.preventDefault();
+        let dateTask=(this.dateRef.current.value).split('-');
+        dateTask= dateTask[2] + '/' + dateTask[1] + '/' + dateTask[0];
         let newTask = {
-            id: this.props.numberTask,
             description: this.descriptionRef.current.value,
-            date: this.dateRef.current.value,
+            date: dateTask,
             state: 'pendiente'
         }
         this.props.createNewTask(newTask);

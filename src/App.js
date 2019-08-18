@@ -16,13 +16,17 @@ class App extends Component{
   }
 
   createNewTask = data => {
-    let newTasks=[...this.state.tasks, data];
+    /*let newTasks=[...this.state.tasks, data];
     this.setState({
       tasks: newTasks,
       numberTask: (this.state.numberTask) +1
-    })
-
-    console.log(this.state.tasks)
+    })*/
+    axios.post('http://localhost:3001/tasks', data)
+      .then(resp => {
+        console.log(resp.data);
+      }).catch(error =>{
+        console.log(error);
+      });
   }
 
 
@@ -34,8 +38,7 @@ class App extends Component{
     fetch(url)
       .then(resp => resp.json())
       .then(data => {
-        let tasks = data;
-        let readTask =data.map((task,index)=>{
+        let tasks =data.map((task,index)=>{
           return(
             <div key={task.id}>
               <h3>{task.description}</h3>
@@ -51,8 +54,26 @@ class App extends Component{
         });
       })
   }
+  componentDidUpdate(){
+    let url = 'http://localhost:3001/tasks'
+    fetch(url)
+      .then(resp => resp.json())
+      .then(data => {
+        let tasks =data.map((task,index)=>{
+          return(
+            <div key={task.id}>
+              <h3>{task.description}</h3>
+              <p>Fecha: {task.date}</p>
+              <p>Estado: {task.state}</p>
+            </div>
+          )
+        })
+        this.setState({
+          tasks: tasks
+        });
+      })
+  }
   render(){
-    console.log(this.state.tasks)
     return(
       <div className="container">
         <Header
@@ -61,12 +82,12 @@ class App extends Component{
         />  
         <NewTask
           createNewTask={this.createNewTask}
-          numberTask={this.state.numberTask}
-        />      
+        />    
+        {this.state.tasks}
       </div>
     );
   }
 }
 
 export default App;
-/*{this.state.tasks}*/
+/**/
