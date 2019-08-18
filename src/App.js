@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './bootstrap.min.css';
 import Header from './components/Header';
+import NewTask from './components/NewTask';
 
 class App extends Component{
   constructor(props){
@@ -45,7 +46,8 @@ class App extends Component{
         <Header
           title='COSAS POR HACER'
           actualDate = {this.state.date}
-        />        
+        />  
+        <NewTask/>      
       </div>
     );
   }
