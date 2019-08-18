@@ -1,7 +1,23 @@
 import React, {Component} from 'react';
+import { throwStatement } from '@babel/types';
 
 class NewTask extends Component{
-    state ={ }
+    constructor(props){
+        super(props);
+        this.createNewTask=this.createNewTask.bind(this);
+        this.descriptionRef=React.createRef();
+        this.dateRef=React.createRef();
+    }
+    
+    createNewTask(e){
+        e.preventDefault();
+        let newTask = {
+            description: this.descriptionRef.current.value,
+            date: this.dateRef.current.value,
+            state: 'pendiente'
+        }
+        this.props.createNewTask(newTask);
+    }
 
     render(){
         return(
@@ -10,7 +26,9 @@ class NewTask extends Component{
                     <h3 className="card-title text-center mb-5">
                         Rellenar formulario para crear nueva tarea
                     </h3>
-                    <form>
+                    <form
+                        onSubmit={this.createNewTask}
+                    >
                         <div className="form-group row">
                             <label className="col-sm-4 col-lg-2 col-form-label">
                                 Descripción de la Tarea
@@ -21,6 +39,7 @@ class NewTask extends Component{
                                     className="form-control"
                                     placeholder="Descripción tarea"
                                     name="description"
+                                    ref={this.descriptionRef}
                                 />
                             </div>
                         </div>
@@ -30,13 +49,20 @@ class NewTask extends Component{
                             </label>
                             <div className="col-sm-8 col-lg-10">
                                 <input
-                                    type="text"
+                                    type="date"
                                     className="form-control"
                                     placeholder="DD/MM/AAAA"
                                     name="date"
+                                    ref={this.dateRef}
                                 />
                             </div>
                         </div>
+
+                        <input 
+                            type="submit" 
+                            className="py-2 mt-5 btn btn-success btn-block"
+                            value="Agregar tarea"
+                        />
                     </form>
                 </div>
             </div>

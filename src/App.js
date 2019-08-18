@@ -13,6 +13,10 @@ class App extends Component{
     };
   }
 
+  createNewTask = data => {
+    console.log(data);
+  }
+
 
   componentDidMount(){
     var date = new Date();
@@ -47,7 +51,9 @@ class App extends Component{
           title='COSAS POR HACER'
           actualDate = {this.state.date}
         />  
-        <NewTask/>      
+        <NewTask
+          createNewTask={this.createNewTask}
+        />      
       </div>
     );
   }
