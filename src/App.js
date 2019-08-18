@@ -9,12 +9,18 @@ class App extends Component{
     this.state={
       tasks: [],
       date: '',
-      timestamp:0
+      timestamp: 0,
+      numberTask: 0
     };
   }
 
   createNewTask = data => {
-    console.log(data);
+    let newTasks=[...this.state.tasks, data];
+    this.setState({
+      tasks: newTasks,
+      numberTask: (this.state.numberTask) +1
+    })
+    console.log(this.state.tasks)
   }
 
 
@@ -53,6 +59,7 @@ class App extends Component{
         />  
         <NewTask
           createNewTask={this.createNewTask}
+          numberTask={this.state.numberTask}
         />      
       </div>
     );

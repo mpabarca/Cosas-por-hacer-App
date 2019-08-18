@@ -12,6 +12,7 @@ class NewTask extends Component{
     createNewTask(e){
         e.preventDefault();
         let newTask = {
+            id: this.props.numberTask,
             description: this.descriptionRef.current.value,
             date: this.dateRef.current.value,
             state: 'pendiente'
