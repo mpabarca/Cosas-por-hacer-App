@@ -37,50 +37,38 @@ class App extends Component {
             .then(resp => resp.json())
             .then(data => {
                 let tasks = data.map((task, index) => {
-                    if (task.state === 'pendiente') {
-                        return ( <
-                            div className = "card"
-                            key = { task.id } >
-                            <
-                            div className = "card-body row" >
-                            <
-                            h5 className = "col-md-8 col-lg-8" > { task.description } < /h5> <
-                            p className = "col-md-2 col-lg-2 text-center task-date" > { task.date } < /p> <
-                            p className = "col-md-2 col-lg-2" > < img src = { pendiente }
-                            alt = "Logo" / > < /p> <
-                            /div>  <
-                            /div>
-                        )
-                    } else if (task.state === 'atrasada') {
-                        return ( <
-                            div className = "card"
-                            key = { task.id } >
-                            <
-                            div className = "card-body row" >
-                            <
-                            h5 className = "col-md-8 col-lg-8" > { task.description } < /h5> <
-                            p className = "col-md-2 col-lg-2 text-center task-date" > { task.date } < /p> <
-                            p className = "col-md-2 col-lg-2" > < img src = { atrasada }
-                            alt = "Logo" / > < /p> <
-                            /div>  <
-                            /div>
-                        )
-                    } else if (task.state === 'liberada') {
-                        return ( <
-                            div className = "card"
-                            key = { task.id } >
-                            <
-                            div className = "card-body row" >
-                            <
-                            h5 className = "col-md-8 col-lg-8" > { task.description } < /h5> <
-                            p className = "col-md-2 col-lg-2 text-center task-date" > { task.date } < /p> <
-                            p className = "col-md-2 col-lg-2" > < img src = { liberada }
-                            alt = "Logo" / > < /p> <
-                            /div>  <
-                            /div>
-                        )
+                    if(task.state==='pendiente'){
+                        return ( 
+                            <div className = "card" key = { task.id } >
+                              <div className = "card-body row" >
+                                <h5 className = "col-md-8 col-lg-8" > { task.description } </h5>
+                                <p className = "col-md-2 col-lg-2 text-center task-date" > { task.date } </p>
+                                <p className = "col-md-2 col-lg-2" ><img src={pendiente} alt="Logo" /></p>
+                              </div> 
+                            </div>
+                          )
+                    }else if(task.state==='atrasada'){
+                        return ( 
+                            <div className = "card" key = { task.id } >
+                              <div className = "card-body row" >
+                                <h5 className = "col-md-8 col-lg-8" > { task.description } </h5>
+                                <p className = "col-md-2 col-lg-2 text-center task-date" > { task.date } </p>
+                                <p className = "col-md-2 col-lg-2" ><img src={atrasada} alt="Logo" /></p>
+                              </div> 
+                            </div>
+                          )
+                    }else if(task.state==='liberada'){
+                        return ( 
+                            <div className = "card" key = { task.id } >
+                              <div className = "card-body row" >
+                                <h5 className = "col-md-8 col-lg-8" > { task.description } </h5>
+                                <p className = "col-md-2 col-lg-2 text-center task-date" > { task.date } </p>
+                                <p className = "col-md-2 col-lg-2" ><img src={liberada} alt="Logo" /></p>
+                              </div> 
+                            </div>
+                          )
                     }
-
+                    
                 })
                 this.setState({
                     tasks: tasks,
@@ -95,50 +83,38 @@ class App extends Component {
             .then(resp => resp.json())
             .then(data => {
                 let tasks = data.map((task, index) => {
-                    if (task.state === 'pendiente') {
-                        return ( <
-                            div className = "card"
-                            key = { task.id } >
-                            <
-                            div className = "card-body row" >
-                            <
-                            h5 className = "col-md-8 col-lg-8" > { task.description } < /h5> <
-                            p className = "col-md-2 col-lg-2 text-center task-date" > { task.date } < /p> <
-                            p className = "col-md-2 col-lg-2" > < img src = { pendiente }
-                            alt = "Logo" / > < /p> <
-                            /div>  <
-                            /div>
-                        )
-                    } else if (task.state === 'atrasada') {
-                        return ( <
-                            div className = "card"
-                            key = { task.id } >
-                            <
-                            div className = "card-body row" >
-                            <
-                            h5 className = "col-md-8 col-lg-8" > { task.description } < /h5> <
-                            p className = "col-md-2 col-lg-2 text-center task-date" > { task.date } < /p> <
-                            p className = "col-md-2 col-lg-2" > < img src = { atrasada }
-                            alt = "Logo" / > < /p> <
-                            /div>  <
-                            /div>
-                        )
-                    } else if (task.state === 'liberada') {
-                        return ( <
-                            div className = "card"
-                            key = { task.id } >
-                            <
-                            div className = "card-body row" >
-                            <
-                            h5 className = "col-md-8 col-lg-8" > { task.description } < /h5> <
-                            p className = "col-md-2 col-lg-2 text-center task-date" > { task.date } < /p> <
-                            p className = "col-md-2 col-lg-2" > < img src = { liberada }
-                            alt = "Logo" / > < /p> <
-                            /div>  <
-                            /div>
-                        )
+                    if(task.state==='pendiente'){
+                        return ( 
+                            <div className = "card" key = { task.id } >
+                              <div className = "card-body row" >
+                                <h5 className = "col-md-8 col-lg-8" > { task.description } </h5>
+                                <p className = "col-md-2 col-lg-2 text-center task-date" > { task.date } </p>
+                                <p className = "col-md-2 col-lg-2" ><img src={pendiente} alt="Logo" /></p>
+                              </div> 
+                            </div>
+                          )
+                    }else if(task.state==='atrasada'){
+                        return ( 
+                            <div className = "card" key = { task.id } >
+                              <div className = "card-body row" >
+                                <h5 className = "col-md-8 col-lg-8" > { task.description } </h5>
+                                <p className = "col-md-2 col-lg-2 text-center task-date" > { task.date } </p>
+                                <p className = "col-md-2 col-lg-2" ><img src={atrasada} alt="Logo" /></p>
+                              </div> 
+                            </div>
+                          )
+                    }else if(task.state==='liberada'){
+                        return ( 
+                            <div className = "card" key = { task.id } >
+                              <div className = "card-body row" >
+                                <h5 className = "col-md-8 col-lg-8" > { task.description } </h5>
+                                <p className = "col-md-2 col-lg-2 text-center task-date" > { task.date } </p>
+                                <p className = "col-md-2 col-lg-2" ><img src={liberada} alt="Logo" /></p>
+                              </div> 
+                            </div>
+                          )
                     }
-
+                    
                 })
                 this.setState({
                     tasks: tasks
@@ -146,15 +122,17 @@ class App extends Component {
             })
     }
     render() {
-        return ( <
-            div className = "container app" >
-            <
-            Header title = 'COSAS POR HACER'
+        return ( 
+        <div className = "container app" >
+          <Header 
+            title = 'COSAS POR HACER'
             actualDate = { this.state.date }
-            />     { this.state.tasks } <
-            NewTask createNewTask = { this.createNewTask }
-            />     <
-            /div>
+          />    
+          { this.state.tasks } 
+          <NewTask 
+            createNewTask = { this.createNewTask }
+          />    
+        </div>
         );
     }
 }
