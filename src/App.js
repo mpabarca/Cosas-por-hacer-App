@@ -39,9 +39,10 @@ class App extends Component {
                 let tasks = data.map((task, index) => {
                     if(task.state==='pendiente'){
                         return ( 
-                            <div className = "card" key = { task.id } >
+                            <div className = "card card-form" key = { task.id } >
                               <div className = "card-body row" >
-                                <h5 className = "col-md-8 col-lg-8" > { task.description } </h5>
+                                <div class="col-md-2 col-lg-2 form-group form-check"> <input type="checkbox" class="form-check-input" id="exampleCheck1" /></div>
+                                <h5 className = "col-md-6 col-lg-6" > { task.description } </h5>
                                 <p className = "col-md-2 col-lg-2 text-center task-date" > { task.date } </p>
                                 <p className = "col-md-2 col-lg-2" ><img src={pendiente} alt="Logo" /></p>
                               </div> 
@@ -49,9 +50,10 @@ class App extends Component {
                           )
                     }else if(task.state==='atrasada'){
                         return ( 
-                            <div className = "card" key = { task.id } >
+                            <div className = "card card-form" key = { task.id } >
                               <div className = "card-body row" >
-                                <h5 className = "col-md-8 col-lg-8" > { task.description } </h5>
+                                <div class="col-md-2 col-lg-2 form-group form-check"> <input type="checkbox" class="form-check-input" id="exampleCheck1" /></div>
+                                <h5 className = "col-md-6 col-lg-6" > { task.description } </h5>
                                 <p className = "col-md-2 col-lg-2 text-center task-date" > { task.date } </p>
                                 <p className = "col-md-2 col-lg-2" ><img src={atrasada} alt="Logo" /></p>
                               </div> 
@@ -59,9 +61,10 @@ class App extends Component {
                           )
                     }else if(task.state==='liberada'){
                         return ( 
-                            <div className = "card" key = { task.id } >
+                            <div className = "card card-form" key = { task.id } >
                               <div className = "card-body row" >
-                                <h5 className = "col-md-8 col-lg-8" > { task.description } </h5>
+                                <div class="col-md-2 col-lg-2 form-group form-check"> <input type="checkbox" class="form-check-input" id="exampleCheck1" /></div>
+                                <h5 className = "col-md-6 col-lg-6" > { task.description } </h5>
                                 <p className = "col-md-2 col-lg-2 text-center task-date" > { task.date } </p>
                                 <p className = "col-md-2 col-lg-2" ><img src={liberada} alt="Logo" /></p>
                               </div> 
@@ -85,9 +88,10 @@ class App extends Component {
                 let tasks = data.map((task, index) => {
                     if(task.state==='pendiente'){
                         return ( 
-                            <div className = "card" key = { task.id } >
+                            <div className = "card card-form" key = { task.id } >
                               <div className = "card-body row" >
-                                <h5 className = "col-md-8 col-lg-8" > { task.description } </h5>
+                                <div class="col-md-2 col-lg-2 form-group form-check"> <input type="checkbox" class="form-check-input" id="exampleCheck1" /></div>
+                                <h5 className = "col-md-6 col-lg-6" > { task.description } </h5>
                                 <p className = "col-md-2 col-lg-2 text-center task-date" > { task.date } </p>
                                 <p className = "col-md-2 col-lg-2" ><img src={pendiente} alt="Logo" /></p>
                               </div> 
@@ -95,9 +99,10 @@ class App extends Component {
                           )
                     }else if(task.state==='atrasada'){
                         return ( 
-                            <div className = "card" key = { task.id } >
+                            <div className = "card card-form" key = { task.id } >
                               <div className = "card-body row" >
-                                <h5 className = "col-md-8 col-lg-8" > { task.description } </h5>
+                                <div class="col-md-2 col-lg-2 form-group form-check"> <input type="checkbox" class="form-check-input" id="exampleCheck1" /></div> 
+                                <h5 className = "col-md-6 col-lg-6" > { task.description } </h5>
                                 <p className = "col-md-2 col-lg-2 text-center task-date" > { task.date } </p>
                                 <p className = "col-md-2 col-lg-2" ><img src={atrasada} alt="Logo" /></p>
                               </div> 
@@ -105,9 +110,10 @@ class App extends Component {
                           )
                     }else if(task.state==='liberada'){
                         return ( 
-                            <div className = "card" key = { task.id } >
+                            <div className = "card card-form" key = { task.id } >
                               <div className = "card-body row" >
-                                <h5 className = "col-md-8 col-lg-8" > { task.description } </h5>
+                                <div class="col-md-2 col-lg-2 form-group form-check"> <input type="checkbox" class="form-check-input" id="exampleCheck1" /></div>
+                                <h5 className = "col-md-6 col-lg-6" > { task.description } </h5>
                                 <p className = "col-md-2 col-lg-2 text-center task-date" > { task.date } </p>
                                 <p className = "col-md-2 col-lg-2" ><img src={liberada} alt="Logo" /></p>
                               </div> 
