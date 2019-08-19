@@ -22,7 +22,7 @@ class NewTask extends Component{
 
     render(){
         return(
-            <div className="card mt-5 py-5">
+            <div className="card card-form mt-5 py-5">
                 <div className="card-body">
                     <h3 className="card-title text-center mb-5">
                         Rellenar formulario para crear nueva tarea

@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import './bootstrap.min.css';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faClock} from '@fortawesome/free-solid-svg-icons';
 import Header from './components/Header';
 import NewTask from './components/NewTask';
 
@@ -40,10 +42,12 @@ class App extends Component{
       .then(data => {
         let tasks =data.map((task,index)=>{
           return(
-            <div key={task.id}>
-              <h3>{task.description}</h3>
-              <p>Fecha: {task.date}</p>
-              <p>Estado: {task.state}</p>
+            <div className="card" key={task.id}>
+              <div className="card-body row">
+                <h5 className="col-md-6 col-lg-6">{task.description}</h5>
+                <p className="col-md-4 col-lg-4">Fecha: {task.date}</p>
+                <p className="col-md-2 col-lg-2"><FontAwesomeIcon icon={['far', 'faClock']}/></p>
+              </div>
             </div>
           )
         })
@@ -61,10 +65,12 @@ class App extends Component{
       .then(data => {
         let tasks =data.map((task,index)=>{
           return(
-            <div key={task.id}>
-              <h3>{task.description}</h3>
-              <p>Fecha: {task.date}</p>
-              <p>Estado: {task.state}</p>
+            <div className="card" key={task.id}>
+              <div className="card-body row">
+                <h5 className="col-md-8 col-lg-8">{task.description}</h5>
+                <p className="col-md-2 col-lg-2 text-center task-date">{task.date}</p>
+                <p className="col-md-2 col-lg-2"><FontAwesomeIcon icon={['far', 'faClock']}/></p>
+              </div>
             </div>
           )
         })
@@ -75,15 +81,15 @@ class App extends Component{
   }
   render(){
     return(
-      <div className="container">
+      <div className="container app">
         <Header
           title='COSAS POR HACER'
           actualDate = {this.state.date}
-        />  
+        />   
+        {this.state.tasks}
         <NewTask
           createNewTask={this.createNewTask}
-        />    
-        {this.state.tasks}
+        />   
       </div>
     );
   }
